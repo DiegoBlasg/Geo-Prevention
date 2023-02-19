@@ -6,7 +6,7 @@ const Estadisticas = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 30; i++) {
           let l = data[i].l;
           let t = data[i].t;
           let tma = data[i].tma;
@@ -25,10 +25,10 @@ const Estadisticas = () => {
           
           const url = `http://localhost:5002/prediccion?l=${l}&t=${t}&tma=${tma}&tmi=${tmi}&tme=${tme}&r=${r}&vm=${vm}&p1=${p1}&p2=${p2}&p3=${p3}&p4=${p4}&p5=${p5}&m=${m}&d=${d}&y=${y}`;
           console.log(url);
-
+          let fire = data[i].fire
           fetch(url)
               .then(response => response.json())
-              .then(data => console.log(data))
+              .then(data => console.log(Math.trunc(data*100) + "%" + fire))
               .catch(error => console.error(error));
                 }
                 });
