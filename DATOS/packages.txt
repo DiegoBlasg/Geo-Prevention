@@ -1,0 +1,17 @@
+openpyxl
+xlrd
+pandas
+numpy
+matplotlib
+scipy
+datetime
+random
+pickle
+tensorflow
+sklearn
+scikit-learn
+keras
+flask
+flask_cors
+flask_restful
+geopy
