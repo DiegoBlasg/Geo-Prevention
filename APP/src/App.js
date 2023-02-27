@@ -1,7 +1,6 @@
 import Map from "./Map";
 import Menu from "./Menu";
 import Places from "./Places";
-import Estadisticas from "./Estadisticas";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const App = () => {
@@ -15,7 +14,6 @@ const App = () => {
           zoom={6}
         />} />
         <Route path="/places" element={<Places/>} />
-        <Route path="/estadisticas" element={<Estadisticas/>} />
     </Routes>
 </BrowserRouter>
   );

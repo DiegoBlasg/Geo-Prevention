@@ -9,6 +9,7 @@ from tensorflow.keras.models import load_model
 from sklearn.preprocessing import StandardScaler
 from geopy.geocoders import Nominatim
 from pickle import load
+import os
 
 # Creamos la aplicación de Flask
 app = Flask(__name__)
@@ -24,7 +25,7 @@ class Prediccion(Resource):
     def get(self):
         # Cargamos el modelo y los pesos guardados
         model = load_model(
-            r'C:\Users\diego\Desktop\geo-prevention\Geo-Prevention\DATOS\model4.h5')
+            r'C:\Users\diego\Desktop\geo-prevention\Geo-Prevention\DATOS\model.h5')
         model.load_weights(
             r'C:\Users\diego\Desktop\geo-prevention\Geo-Prevention\DATOS\weights.h5')
 
@@ -43,11 +44,11 @@ class Prediccion(Resource):
         p5 = float(request.args.get('p5'))
         m = float(request.args.get('m'))
         d = float(request.args.get('d'))
-        y = float(request.args.get('y'))
+       # y = float(request.args.get('y'))
 
         # Creamos un array numpy con los parámetros
         X = np.array(
-            [[l, t, tma, tmi, tme, r, vm, p1, p2, p3, p4, p5, m, d, y]])
+            [[l, t, tma, tmi, tme, r, vm, p1, p2, p3, p4, p5, m, d]])
 
         # Cargamos el escalador utilizado para el entrenamiento del modelo y transformamos los datos
         sc = load(open(
